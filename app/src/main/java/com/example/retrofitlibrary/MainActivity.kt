@@ -10,7 +10,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mylibrary.PostPrinter
 import com.example.retrofitlibrary.ui.theme.RetrofitLibraryTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    Greeting()
                 }
             }
         }
@@ -31,10 +30,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting() {
     ElevatedButton(onClick = {
 //        RetrofitClient.printPosts()
-        PostPrinter.printPosts()
+//        PostPrinter.printPosts()
     }) {
     }
 }
@@ -43,6 +42,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     RetrofitLibraryTheme {
-        Greeting("Android")
+        Greeting()
     }
 }

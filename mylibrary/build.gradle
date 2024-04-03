@@ -9,10 +9,10 @@ android {
     compileSdk 34
 
 
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
+//    compileOptions {
+//        sourceCompatibility 21
+//        targetCompatibility 21
+//    }
 
     defaultConfig {
         minSdk 25
@@ -21,10 +21,16 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
+//    sourceSets{
+//        main {
+//            java.srcDirs = ['src/main/java']
+//        }
+//    }
+
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources false
+            minifyEnabled false
+            consumerProguardFiles 'consumer-rules.pro'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,8 +44,8 @@ android {
 }
 
 dependencies {
-    implementation libs.retrofit
-    implementation libs.converter.gson
+//    implementation libs.retrofit
+//    implementation libs.converter.gson
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -48,16 +54,34 @@ dependencies {
     androidTestImplementation libs.androidx.espresso.core
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication){
+            release(MavenPublication) {
                 from components.release
 
                 groupId = 'github.com.RekanAnwar'
-                artifactId = ''
-                version = ''
+                artifactId = 'android-library-get-posts'
+                version = '1.5'
+                pom {
+                    description = "DESC"
+                }
             }
         }
     }
+
+//    repositories{
+//        mavenLocal()
+//    }
 }
