@@ -44,8 +44,8 @@ android {
 }
 
 dependencies {
-//    implementation libs.retrofit
-//    implementation libs.converter.gson
+    implementation libs.retrofit
+    implementation libs.converter.gson
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
@@ -73,7 +73,7 @@ afterEvaluate {
 
                 groupId = 'github.com.RekanAnwar'
                 artifactId = 'android-library-get-posts'
-                version = '1.5'
+                version = '1.7'
                 pom {
                     description = "DESC"
                 }
